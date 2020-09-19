@@ -10,7 +10,7 @@ function getCat() {
     });
 }
 
-window.onload = function() { 
+window.onload = function() {
     const catButton = document.getElementById("cat-button");
     catButton.onclick = getCat;
 }
