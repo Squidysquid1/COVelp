@@ -4,6 +4,7 @@ from my_app import app, db
 from flask import render_template, request, redirect
 from my_app.models import Business, Review
 from flask_googlemaps import GoogleMaps
+from flask_googlemaps import Map
 
 
 
