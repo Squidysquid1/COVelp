@@ -2,7 +2,7 @@
 
 from my_app import app, db
 from flask import render_template, request, redirect
-from my_app.models import Fact, Post
+#from my_app.models import Fact, Post
 
 name="Zoë"
 facts = {"Birthday":"August 29th, 2001", "Favorite Color": "blue", "Favorite Hackathon": "HackMIT"}
