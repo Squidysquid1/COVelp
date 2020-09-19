@@ -33,16 +33,23 @@
         <!--The div element for the map -->
         <div id="map"></div>
       </div>
-      <div class="col-4" id="business-data">
-        <div id="business-title">Billy's Shop</div>
-        <div id="business-location">Kenosha, WI</div>
-        <div id="location-cases">Cases: 1000 confirmed cases</div>
-        <div id="avg-busy">Busyness score</div>
-        <div id="avg-sd">Social Distancing score: 8.3/10</div>
-        <div id="avg-me">Mask enforcement score: 9.4/10</div>
-        <div id="avg-mr">Mask required</div>
-        <div id="business-score">Total COVID score: 8/10</div>
-
+      <div class="col-4" id="business-info">
+        <div class="business-data">
+          <div id="business-title">Billy's Shop</div>
+          <div id="business-location">Kenosha, WI</div>
+          <div id="location-cases">Cases: 1000 confirmed cases</div>
+          <div id="avg-busy">Busyness score</div>
+          <div id="avg-sd">Social Distancing score: 8.3/10</div>
+          <div id="avg-me">Mask enforcement score: 9.4/10</div>
+          <div id="avg-mr">Mask required</div>
+          <div id="business-score">Total COVID score: 8/10</div>
+        </div>
+        <div class="business-reviews">
+          <div id="review-head">Reviews: </div>
+          {% for r in reviews %}
+            <div class="review">{{r}}</div><br />
+          {% endfor %}
+        </div>
       </div>
       <!--div id="business-data"></div-->
     </div>

@@ -13,8 +13,8 @@ def index():
 
     #db_posts = Post.query.all()
     #post_list = [{"title": post.title, "description": post.description} for post in db_posts]
+    return render_template("index.html", reviews=[])
 
-    return render_template("index.html")
 '''
  @app.route("/review-business")
  def review_business():
