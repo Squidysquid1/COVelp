@@ -69,6 +69,8 @@ button {
 #form {
   position: absolute;
   top: 20%;
-  right:40%;
-  display: block;
+  right: 40%;
+  display: none;
+  background-color: white;
+  padding: 3%
 }
