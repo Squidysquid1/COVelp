@@ -9,7 +9,7 @@ def check_covid_data():
     info = df[['Admin2', 'Province_State'] + list(df.columns[11:])]
 
     conn = sqlite3.connect('app.db')
-    #conn.execute('DROP TABLE covid_data IF EXISTS')
+    #conn.execute('DROP TABLE covid_data')
     info.to_sql('covid_data', conn)
     date_now = datetime.date.today()
     date_recent = datetime.datetime.strptime(df.columns[-1], '%m/%d/%y').date()
