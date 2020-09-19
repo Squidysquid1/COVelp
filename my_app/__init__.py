@@ -2,7 +2,7 @@ import os
 from flask import Flask, session, request
 from flask_sqlalchemy import SQLAlchemy
 
-app = Flask(__name__, template_folder='templates')
+app = Flask(__name__)
 
 #load main config
 app.config.from_pyfile('../config.py')
