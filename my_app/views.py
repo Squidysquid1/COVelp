@@ -2,11 +2,13 @@
 
 from my_app import app, db
 from flask import render_template, request, redirect
-#from my_app.models import Fact, Post
+from my_app.models import Business, Review
 
-name="Zoë"
+name=""
 facts = {"Birthday":"August 29th, 2001", "Favorite Color": "blue", "Favorite Hackathon": "HackMIT"}
 posts = [{"title": "This is my 1st post!", "description": "this is my first description!"}]
+
+db.create_all()
 
 @app.route("/")
 def index():

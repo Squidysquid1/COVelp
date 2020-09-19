@@ -13,6 +13,8 @@ class Business(db.Model):
 	avg_busy = db.Column(db.Float)
 	avg_social_distance = db.Column(db.Float) #0 to 10
 
+	reviews = db.relationship('Review', backref='Business', lazy=True)
+
 class Review(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	author_name = db.Column(db.String(250), nullable=False)
