@@ -10,13 +10,13 @@ posts = [{"title": "This is my 1st post!", "description": "this is my first desc
 
 @app.route("/")
 def index():
-    db_facts = Fact.query.all()
-    fact_dict = {fact.name: fact.value for fact in db_facts}
+    #db_facts = Fact.query.all()
+    #fact_dict = {fact.name: fact.value for fact in db_facts}
 
-    db_posts = Post.query.all()
-    post_list = [{"title": post.title, "description": post.description} for post in db_posts]
+    #db_posts = Post.query.all()
+    #post_list = [{"title": post.title, "description": post.description} for post in db_posts]
 
-    return render_template("index.html", name=name, facts=fact_dict, posts=post_list)
+    return render_template("index.html")
 
 # @app.route("/change_name")
 # def change_name():
