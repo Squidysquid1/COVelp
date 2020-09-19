@@ -14,7 +14,7 @@ def index():
     #db_posts = Post.query.all()
     #post_list = [{"title": post.title, "description": post.description} for post in db_posts]
 
-    return render_template("index.html", mymap=mymap, sndmap=sndmap)
+    return render_template("index.html")
 '''
  @app.route("/change_name")
  def change_name():
