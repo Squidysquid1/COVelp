@@ -60,9 +60,15 @@ button {
     text-align: center;
 }
 
-
 .post {
     margin-top: 75px !important;
     width: 50%;
     margin: auto;
+}
+
+#form {
+  position: absolute;
+  top: 20%;
+  right:40%;
+  display: block;
 }
