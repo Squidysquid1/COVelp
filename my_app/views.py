@@ -3,6 +3,7 @@
 from my_app import app, db
 from flask import render_template, request, redirect
 from my_app.models import Business, Review
+<<<<<<< HEAD
 from flask_googlemaps import GoogleMaps
 
 
@@ -12,6 +13,8 @@ GoogleMaps(app, key="AIzaSyBt5Lfhuje_b-vNxcIEbkOvaRrhoP-M6pE")
 name=""
 facts = {"Birthday":"August 29th, 2001", "Favorite Color": "blue", "Favorite Hackathon": "HackMIT"}
 posts = [{"title": "This is my 1st post!", "description": "this is my first description!"}]
+=======
+>>>>>>> 4ddad73ec8ac108c361006ed5fce9fc32f711cb0
 
 db.create_all()
 
