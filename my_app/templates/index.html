@@ -29,23 +29,48 @@
     <div class="row" id="row-3">
       <div class="col-8">
         <!--The div element for the map -->
-        <div id="map"></div>
+        <div class="pac-card" id="pac-card">
+      <div>
+        <div id="title">
+          Autocomplete search
+        </div>
+      </div>
+      <div id="pac-container">
+        <input id="pac-input" type="text" placeholder="Enter a location" />
+      </div>
+    </div>
+    <div id="map"></div>
+    <div id="infowindow-content">
+      <img src="" width="16" height="16" id="place-icon" />
+      <span id="place-name" class="title"></span><br />
+      <span id="place-address"></span>
+    </div>
       </div>
       <div class="col-4" id="business-info">
         <div class="business-data">
-          <div id="business-title">Business Name: Billy's Shop</div>
-          <div id="business-location">Location: Kenosha, WI</div>
-          <div id="location-cases">Cases: 1000 confirmed cases</div>
-          <div id="avg-mr">Mask required</div>
-          <div id="avg-busy" class="average">Busyness score: 3/10</div>
-          <div id="avg-sd" class="average">Social Distancing score: 8.3/10</div>
-          <div id="avg-me" class="average">Mask enforcement score: 9.4/10</div>
-          <div id="business-score" class="average">Total COVID score: 8/10</div>
+          <div id="business-title">Business Name: Billy's Shop</div><br/>
+          <div id="business-location">Location: Kenosha, WI</div><br/>
+          <div id="location-cases">Cases: 1000 confirmed cases</div><br/>
+          <div id="avg-mr">Mask required</div><br/>
+          <div id="avg-busy" class="average">Busyness score: 3/10</div><br/>
+          <div id="avg-sd" class="average">Social Distancing score: 8.3/10</div><br/>
+          <div id="avg-me" class="average">Mask enforcement score: 9.4/10</div><br/>
+          <div id="business-score" class="average">Total COVID score: 8/10</div><br/>
         </div>
         <div class="business-reviews">
           <div id="review-head">Reviews: </div>
           {% for r in reviews %}
-            <div class="review">{{r}}</div><br />
+            <div class="review">
+              <div id="author-name">Author Name: John Smith</div><div id="author-date">Date: 09/19/2020</div><br/>
+              <div class="average">Busyness score: 2/10</div><br/>
+              <div class="average">Social Distancing score: 4.4/10</div><br/>
+              <div class="average">Mask enforcement score: 2.4/10</div><br/>
+              <div id="review-text">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer enim ipsum, euismod sed metus sit amet, placerat lacinia nisi. Curabitur rutrum luctus tempus. Nam magna est, hendrerit ut ex non, viverra finibus velit. Quisque molestie erat tempor neque tincidunt, et consectetur felis bibendum. Vivamus quis tortor egestas, finibus ligula non, elementum eros. Nunc ut ex tortor. Morbi et tellus ullamcorper, porta enim sit amet, porttitor ligula.
+
+Quisque mattis sem urna, sit amet sagittis elit viverra nec. Sed a libero fermentum, vehicula ipsum at, euismod dui. Quisque sit amet malesuada felis, sed commodo ipsum. Nullam eu massa mi. Mauris ac malesuada ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla facilisi. Integer interdum purus tellus, sit amet fermentum sapien ullamcorper ut. In dictum, metus ut venenatis cursus, magna quam congue velit, ut semper mi urna efficitur elit. </div><br/>
+
+            </div><br />
           {% endfor %}
         </div>
       </div>
@@ -77,6 +102,6 @@
 
     <script src="../static/js/api.js"></script>
     <script src="../static/js/other.js"></script>
-    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBt5Lfhuje_b-vNxcIEbkOvaRrhoP-M6pE&callback=initMap"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?libraries=places,localContext&v=beta&key=AIzaSyBt5Lfhuje_b-vNxcIEbkOvaRrhoP-M6pE&callback=initMap"></script>
   </body>
 </html>
