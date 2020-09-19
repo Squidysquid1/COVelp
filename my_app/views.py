@@ -3,6 +3,13 @@
 from my_app import app, db
 from flask import render_template, request, redirect
 from my_app.models import Business, Review
+from flask_googlemaps import GoogleMaps
+
+
+
+
+# you can also pass the key here if you prefer
+GoogleMaps(app, key="AIzaSyBt5Lfhuje_b-vNxcIEbkOvaRrhoP-M6pE")
 
 name=""
 facts = {"Birthday":"August 29th, 2001", "Favorite Color": "blue", "Favorite Hackathon": "HackMIT"}
@@ -17,8 +24,32 @@ def index():
 
     #db_posts = Post.query.all()
     #post_list = [{"title": post.title, "description": post.description} for post in db_posts]
-
-    return render_template("index.html")
+    mymap = Map(
+        identifier="view-side",
+        lat=37.4419,
+        lng=-122.1419,
+        markers=[(37.4419, -122.1419)]
+    )
+    sndmap = Map(
+        identifier="sndmap",
+        lat=37.4419,
+        lng=-122.1419,
+        markers=[
+          {
+             'icon': 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+             'lat': 37.4419,
+             'lng': -122.1419,
+             'infobox': "<b>Hello World</b>"
+          },
+          {
+             'icon': 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+             'lat': 37.4300,
+             'lng': -122.1400,
+             'infobox': "<b>Hello World from other place</b>"
+          }
+        ]
+    )
+    return render_template("index.html", mymap=mymap, sndmap=sndmap)
 
 # @app.route("/change_name")
 # def change_name():
