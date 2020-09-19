@@ -3,21 +3,6 @@
 from my_app import app, db
 from flask import render_template, request, redirect
 from my_app.models import Business, Review
-<<<<<<< HEAD
-from flask_googlemaps import GoogleMaps
-from flask_googlemaps import Map
-
-
-
-
-# you can also pass the key here if you prefer
-GoogleMaps(app, key="AIzaSyBt5Lfhuje_b-vNxcIEbkOvaRrhoP-M6pE")
-
-name=""
-facts = {"Birthday":"August 29th, 2001", "Favorite Color": "blue", "Favorite Hackathon": "HackMIT"}
-posts = [{"title": "This is my 1st post!", "description": "this is my first description!"}]
-=======
->>>>>>> 0bf6e0c4d12023414de50dd03a36bc2d8f517319
 
 db.create_all()
 
