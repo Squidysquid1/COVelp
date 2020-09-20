@@ -1,4 +1,5 @@
 from my_app import db
+import json
 
 class Business(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
@@ -29,3 +30,13 @@ class Review(db.Model):
 	time = db.Column(db.DateTime, nullable=False)
 
 	business_id = db.Column(db.Integer, db.ForeignKey('business.id'), nullable=False)
+
+	def __repr__(self): #returns json object for javascript
+		r = {'author_name' : self.author_name,
+			 'mask_required' : self.mask_required,
+			 'social_distance' : self.social_distance,
+			 'busy' : self.busy,
+			 'text' : self.text,
+			 'time' : self.time,
+		}
+		return json.dumps(r)
