@@ -39,13 +39,12 @@ class Review(db.Model):
 	text = db.Column(db.String(500))
 	time = db.Column(db.DateTime, nullable=False)
 
-	business_id = db.Column(db.Integer, db.ForeignKey('business.id'), nullable=False)
+	business_id = db.Column(db.Integer, db.ForeignKey('business.place_id'), nullable=False)
 
 	def __repr__(self): #returns json object for javascript
 		r = {'author_name' : self.author_name,
 			 'mask_required' : self.mask_required,
 			 'social_distance' : self.social_distance,
 			 'busy' : self.busy,
-			 'text' : self.text,
-			 'time' : self.time}
+			 'text' : self.text}
 		return json.dumps(r)
