@@ -18,3 +18,18 @@ function reviewForm() {
   }
 
 }
+
+busySlider = document.getElementById('busy-slide')
+busySlider.oninput = function() {
+  document.getElementById('busy-val').innerHTML = this.value;
+}
+
+sDSlider = document.getElementById('sdScore-slide')
+sDSlider.oninput = function() {
+  document.getElementById('sdScore-val').innerHTML = this.value;
+}
+
+maskScoreSlider = document.getElementById('maskScore-slide')
+maskScoreSlider.oninput = function() {
+  document.getElementById('maskScore-val').innerHTML = this.value;
+}

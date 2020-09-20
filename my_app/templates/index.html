@@ -81,18 +81,21 @@
       	<!-- Question 2 -->
       	<h3>Mask wearing is enforced?</h3>
       	<label for="score">On a scale of 1-10 (10 being enforced strictly):</label><br>
-      	<input type="text" id="maskScore" name="maskScore" value=""><br>
+        <div class="slidecontainer">
+          <input type="range" min="1" max="10" value="1" class="slider" id='maskScore-slide'><span class='slide-val' id='maskScore-val'></span>
+        </div>
       	<!-- Question 3 -->
       	<h3>Social Distancing is enforced?</h3>
       	<label for="score">On a scale of 1-10 (10 being enforced strictly):</label><br>
-      	<input type="text" id="sdScore" name="sdScore" value=""><br>
+        <div class="slidecontainer">
+          <input type="range" min="1" max="10" value="1" class="slider" id='sdScore-slide'><span class='slide-val' id='sdScore-val'></span>
+        </div>
       	<!-- Question 4 -->
       	<h3>How busy is the location?</h3>
       	<label for="score">On a scale of 1-10 (10 being abnormally busy):</label><br>
         <div class="slidecontainer">
-          <input type="range" min="1" max="10" value="1" class="slider">
+          <input type="range" min="1" max="10" value="1" class="slider" id='busy-slide'><span class='slide-val' id='busy-val'></span>
         </div>
-      	<input type="text" id="busyScore" name="busyScore" value=""><br><br> <!-- two breaks intended -->
       	<!-- Submit button -->
       	<button type="submit" onclick="reviewForm();" style="float:left;">SUBMIT</button>
         <button type="submit" onclick="hideForm();" style="float:right;">Close Review</button>
