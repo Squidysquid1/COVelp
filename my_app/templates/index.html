@@ -41,29 +41,29 @@
           <button onclick="showForm();">Write review</button>
         </div>
         <div class="business-data">
-          <div id="business-title"><br>Billy's Shop</div><br/>
-          <div id="business-location">Location: Kenosha, WI</div><br/>
-          <div id="location-cases">Cases: 1000 confirmed cases</div><br/>
-          <div id="avg-mr">Mask required</div><br/>
-          <div id="avg-busy" class="average">Busyness score: 3/10</div><br/>
-          <div id="avg-sd" class="average">Social Distancing score: 8.3/10</div><br/>
-          <div id="avg-me" class="average">Mask enforcement score: 9.4/10</div><br/>
-          <div id="business-score" class="average">Total COVID score: 8/10</div><br/>
+          {% for b in business %}
+            <div id="business-title"><br>{{b['business_name']}}</div><br/>
+            <!-- <div id="business-location">Location: Kenosha, WI</div><br/> -->
+            <!-- <div id="location-cases">Cases: 1000 confirmed cases</div><br/> -->
+            <div id="avg-mr">Mask required: {{b['avg_mask_required']}}</div><br/>
+            <div id="avg-busy" class="average">Busyness score: {{b['avg_busy']}}</div><br/>
+            <div id="avg-sd" class="average">Social Distancing score: {{b['avg_social_distance']}}</div><br/>
+            <div id="avg-me" class="average">Mask enforcement score: {{b['avg_mask_enforced']}}</div><br/>
+            <div id="business-score" class="average">Total COVID score: {{b['score']}}</div><br/>
+          {% endfor %}
         </div>
         <div class="business-reviews">
+          {% for r in reviews %}
           <div id="review-head">Reviews: </div>
             <div class="review">
-              <div id="author-name">Author Name: John Smith</div><div id="author-date">Date: 09/19/2020</div><br/>
-              <div class="average">Busyness score: 2/10</div><br/>
-              <div class="average">Social Distancing score: 4.4/10</div><br/>
-              <div class="average">Mask enforcement score: 2.4/10</div><br/>
-              <div id="review-text">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer enim ipsum, euismod sed metus sit amet, placerat lacinia nisi. Curabitur rutrum luctus tempus. Nam magna est, hendrerit ut ex non, viverra finibus velit. Quisque molestie erat tempor neque tincidunt, et consectetur felis bibendum. Vivamus quis tortor egestas, finibus ligula non, elementum eros. Nunc ut ex tortor. Morbi et tellus ullamcorper, porta enim sit amet, porttitor ligula.
-
-Quisque mattis sem urna, sit amet sagittis elit viverra nec. Sed a libero fermentum, vehicula ipsum at, euismod dui. Quisque sit amet malesuada felis, sed commodo ipsum. Nullam eu massa mi. Mauris ac malesuada ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla facilisi. Integer interdum purus tellus, sit amet fermentum sapien ullamcorper ut. In dictum, metus ut venenatis cursus, magna quam congue velit, ut semper mi urna efficitur elit. </div><br/>
-
-            </div><br />
-        </div>
+              <div id="author-name">Author Name: {{r['author_name']}}</div><div id="author-date">Date: {{r['time']}}</div><br/>
+              <div class="average">Busyness score: {{r['busy']}}</div><br/>
+              <div class="average">Social Distancing score: {{r['social_distance']}}</div><br/>
+              <div class="average">Mask enforcement score: {{r['mask_enforced']}}</div><br/>
+              <div id="review-text">{{r['text']}}</div><br/>
+            </div>
+          </div>
+          {% endfor %}
       </div>
       <!--div id="business-data"></div-->
     </div>
@@ -89,6 +89,9 @@ Quisque mattis sem urna, sit amet sagittis elit viverra nec. Sed a libero fermen
       	<!-- Question 4 -->
       	<h3>How busy is the location?</h3>
       	<label for="score">On a scale of 1-10 (10 being abnormally busy):</label><br>
+        <div class="slidecontainer">
+          <input type="range" min="1" max="10" value="1" class="slider">
+        </div>
       	<input type="text" id="busyScore" name="busyScore" value=""><br><br> <!-- two breaks intended -->
       	<!-- Submit button -->
       	<button type="submit" onclick="reviewForm();" style="float:left;">SUBMIT</button>

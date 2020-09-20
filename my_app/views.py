@@ -8,15 +8,17 @@ db.create_all()
 
 @app.route("/")
 def index():
-    return render_template("index.html", reviews=[])
+    return render_template("index.html", reviews=[], business=[])
 
-@app.route('/api/<place_id>', methods = ['GET', 'POST'])
-def user(user_id):
+@app.route('/api', methods = ['GET'])
+def review():
     if request.method == 'GET':
+        place_id = request.args.get('id')
+        b = [Business.query.filter(Business.place_id == place_id).first()] #all businesses
+        rs = Review.query.filter(Business.place_id == place_id).all() # all reviews
 
-    if request.method == 'POST':
+        return render_template("index.html", reviews=rs, business=b)
 
-        data = request.form # a multidict containing POST data
 
 
 

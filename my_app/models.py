@@ -22,6 +22,7 @@ class Business(db.Model):
 		b = {'business_name' : self.business_name,
 			 'avg_mask_required' : self.avg_mask_required,
 			 'avg_busy' : self.avg_busy,
+			 'avg_mask_enforced' : self.avg_mask_enforced,
 			 'avg_social_distance' : self.avg_social_distance,
 			 'score' : self.score}
 
@@ -48,3 +49,5 @@ class Review(db.Model):
 			 'text' : self.text,
 			 'time' : self.time}
 		return json.dumps(r)
+
+@app.route('')
