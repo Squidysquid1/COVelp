@@ -75,6 +75,7 @@ button {
 }
 
 #business-info {
+  text-align:center;
   font-family: Arial;
   font-size: 18px;
   font-weight:300;
