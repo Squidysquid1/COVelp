@@ -13,6 +13,7 @@ def index():
 @app.route('/api', methods = ['GET'])
 def review():
     if request.method == 'GET':
+
         place_id = request.args.get('id')
         b = [Business.query.filter(Business.place_id == place_id).first()] #all businesses
         rs = Review.query.filter(Business.place_id == place_id).all() # all reviews

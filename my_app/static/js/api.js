@@ -122,5 +122,5 @@ function checkForPlaceIdInDatabase(placeId){
 
      }
   };
-  xhttp.send("id="+placeId);
+  xhttp.send("?id="+placeId);
 }
