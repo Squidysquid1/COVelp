@@ -75,11 +75,15 @@ button {
 }
 
 #business-info {
-
+  font-family: Arial;
+  font-size: 15px;
+  font-weight:300;
 }
 
 .average {
-
+  font-family: Arial;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 
