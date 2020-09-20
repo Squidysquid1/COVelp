@@ -140,3 +140,6 @@ button {
   font-weight: 500;
   padding: 6px 12px;
 }
+body{
+  background-color: gray;
+}
