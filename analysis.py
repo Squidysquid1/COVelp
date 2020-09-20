@@ -12,7 +12,7 @@ def analysis(b_place_id=''):
     b.avg_mask_required = get_required(reviews)
     b.avg_social_distance = get_social_distance(reviews)
 
-    b.score = get_score(reviews, a=1, b=1, c=1, d=1) #a, b, c, d are parameters
+    b.score = get_score(reviews, a=1, b=1, c=1, d=1.3) #a, b, c, d are parameters
 
     db.session.commit()
 
@@ -62,12 +62,12 @@ def get_score(reviews, a=1, b=1, c=1, d=1):
         social_distance = 5
         mask_required = 3
         busy = 1
-        score += a*(r.mask_enforced + r.social_distance + (10 - r.busy)) +\
-            b*(int(r.mask_required) * (r.social_distance + (10 - r.busy)))/(12 - r.mask_enforced) +\
-            c*(int(r.mask_required)*(r.social_distance + r.mask_enforced))/(r.busy+1) +\
-            d*(int(r.mask_required)*(r.mask_enforced + (10 - r.busy)))/(12 - r.social_distance)
-    
-    return min(score / len(reviews), 10)
+        score += a*(r.mask_enforced + r.social_distance + (10 - r.busy)) / 4 +\
+           b*(int(r.mask_required) * (r.social_distance + (10 - r.busy)))/(11 - r.mask_enforced) +\
+           c*(int(r.mask_required)*(r.social_distance*1.15 + r.mask_enforced))/(r.busy+1) +\
+           d*(int(r.mask_required)*(r.mask_enforced + (10 - r.busy)))/(11 - r.social_distance)
+
+    return min((score / 3) / len(reviews), 10)
 
 
 def get_reviews(business_id):

@@ -31,8 +31,8 @@ img {
     height: 200px;
 }
 #map {
-  height: 1000px;  /* The height is 400 pixels */
-  width: 1000px;  /* The width is the width of the web page */
+  height: 500px;  /* The height is 400 pixels */
+ /* The width is the width of the web page */
  }
 h1 {
     background-color: lightblue;
