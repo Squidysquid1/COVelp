@@ -12,7 +12,7 @@ function initMap() {
   // bounds option in the request.
   autocomplete.bindTo("bounds", map);
   // Set the data fields to return when the user selects a place.
-  autocomplete.setFields(["address_components", "geometry", "icon", "name"]);
+  autocomplete.setFields(["address_components", "geometry", "name"]);
   const infowindow = new google.maps.InfoWindow();
   const infowindowContent = document.getElementById("infowindow-content");
   infowindow.setContent(infowindowContent);
@@ -42,7 +42,7 @@ function initMap() {
     marker.setPosition(place.geometry.location);
     marker.setVisible(true);
     let address = "";
-
+    console.log(place);
     if (place.address_components) {
       address = [
         (place.address_components[0] &&
@@ -56,7 +56,6 @@ function initMap() {
           ""
       ].join(" ");
     }
-    infowindowContent.children["place-icon"].src = place.icon;
     infowindowContent.children["place-name"].textContent = place.name;
     infowindowContent.children["place-address"].textContent = address;
     infowindow.open(map, marker);
