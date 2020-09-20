@@ -83,6 +83,7 @@ function initMap() {
     }
     infowindowContent.children["place-name"].textContent = place.name;
     infowindowContent.children["place-address"].textContent = address;
+    console.log(place.place_id);
     console.log(checkForPlaceIdInDatabase(place.place_id));
     infowindow.open(map, marker);
   });
