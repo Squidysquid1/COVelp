@@ -68,7 +68,6 @@ function initMap() {
     marker.setVisible(true);
 
     let address = "";
-    console.log(place);
     if (place.address_components) {
       address = [
         (place.address_components[0] &&
@@ -84,7 +83,7 @@ function initMap() {
     }
     infowindowContent.children["place-name"].textContent = place.name;
     infowindowContent.children["place-address"].textContent = address;
-
+    console.log(checkForPlaceIdInDatabase(place.place_id));
     infowindow.open(map, marker);
   });
 }
