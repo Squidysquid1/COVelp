@@ -1,8 +1,7 @@
-# Views at the end of Workshop 2
-
 from my_app import app, db
 from flask import render_template, request, redirect, url_for, flash
 from my_app.models import Business, Review
+import json
 
 db.create_all()
 
@@ -10,11 +9,10 @@ db.create_all()
 def index():
     return render_template("index.html", reviews=[], business=[])
 
-@app.route('/api', methods = ['GET'])
+@app.route('/api', methods = ['POST'])
 def review():
-    if request.method == 'GET':
-
-        place_id = request.args.get('id')
+    if request.method == 'POST':
+        place_id = request.get_json()['b_id']
         b = [Business.query.filter(Business.place_id == place_id).first()] #all businesses
         rs = Review.query.filter(Business.place_id == place_id).all() # all reviews
         flash(place_id)

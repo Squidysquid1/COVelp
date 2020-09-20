@@ -87,6 +87,7 @@ function initMap() {
     console.log(place.name);
     console.log(address)
     console.log(checkForPlaceIdInDatabase(place.place_id));
+
     infowindow.open(map, marker);
   });
 }
@@ -108,21 +109,35 @@ function drawCircle(color){//green for >90 //yellow for 90-70 //red for < 70
 
 }
 
+function checkForPlaceIdInDatabase(placeId) {
+  //$.post("/api", {id: placeId});
+  $.ajax({
+    type : 'POST',
+    url : "api",
+    contentType: 'application/json;charset=UTF-8',
+    data : {'b_id' :placeId}
+  });
+}
+
 function updateRightSide(){}
-function checkForPlaceIdInDatabase(placeId){
+function checkForPlaceIdInDatabase2(placeId){
   var xhttp = new XMLHttpRequest();
 
+  xhttp.open( "GET", "/api?place_id="+placeId, true ); // false for synchronous request
+  xhttp.send( null );
+  return xhttp.responseText;
+//ChIJ4fpH7c1fBYgRWFd77Dfo2wA
   //xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   //xhttp.setRequestHeader("id", placeId, false);
-  xhttp.onreadystatechange = function() {
-     if (this.readyState == 4 && this.status == 200) {
-
-        // Response
-        return response = this.responseText;
-
-     }
-  };
-  xhttp.open("GET", "localhost:5000/api?id=" + placeId, true);
-  xhttp.send()
+  // xhttp.onreadystatechange = function() {
+  //    if (this.readyState == 4 && this.status == 200) {
+  //
+  //       // Response
+  //       return response = this.responseText;
+  //
+  //    }
+  // };
+  // xhttp.open("GET", "localhost:5000/api?id=" + placeId, true);
+  // xhttp.send()
   // xhttp.send("?id="+placeId);
 }
