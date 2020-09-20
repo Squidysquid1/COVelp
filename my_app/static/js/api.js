@@ -86,7 +86,7 @@ function initMap() {
     console.log(place.place_id);
     console.log(place.name);
     console.log(address)
-    console.log(checkForPlaceIdInDatabase(place.place_id));
+    console.log(checkForPlaceIdInDatabase({'id': place.place_id, 'name': place.name}));
 
     infowindow.open(map, marker);
   });
@@ -109,23 +109,27 @@ function drawCircle(color){//green for >90 //yellow for 90-70 //red for < 70
 
 }
 
-function checkForPlaceIdInDatabase(placeId) {
+function checkForPlaceIdInDatabase2(placeId) {
   //$.post("/api", {id: placeId});
-  $.ajax({
-    type : 'POST',
-    url : "api",
-    contentType: 'application/json;charset=UTF-8',
-    data : {'b_id' :placeId}
-  });
+  // $.post({
+  //   type : 'POST',
+  //   url : "api",
+  //   contentType: 'application/json;charset=UTF-8',
+  //   data : {'b_id' :placeId}
+  // });
+  // $.post("api", {"place_id" : placeId}, function(){
+	// });
+
+  //event.preventDefault();
 }
 
-function updateRightSide(){}
-function checkForPlaceIdInDatabase2(placeId){
-  var xhttp = new XMLHttpRequest();
-
-  xhttp.open( "GET", "/api?place_id="+placeId, true ); // false for synchronous request
-  xhttp.send( null );
-  return xhttp.responseText;
+// function updateRightSide(){}
+// function checkForPlaceIdInDatabase2(placeId){
+//   var xhttp = new XMLHttpRequest();
+//
+//   xhttp.open( "GET", "/api?place_id="+placeId, true ); // false for synchronous request
+//   xhttp.send( null );
+//   return xhttp.responseText;
 //ChIJ4fpH7c1fBYgRWFd77Dfo2wA
   //xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   //xhttp.setRequestHeader("id", placeId, false);
@@ -140,4 +144,21 @@ function checkForPlaceIdInDatabase2(placeId){
   // xhttp.open("GET", "localhost:5000/api?id=" + placeId, true);
   // xhttp.send()
   // xhttp.send("?id="+placeId);
+//}
+
+function checkForPlaceIdInDatabase(place) {
+  var req = new XMLHttpRequest();
+  var result = document.getElementById('result');
+  req.onreadystatechange = function()
+  {
+    if(this.readyState == 4 && this.status == 200) {
+      result.innerHTML = this.responseText;
+    } else {
+      result.innerHTML = "No business was chosen";
+    }
+  }
+
+  req.open('POST', '/api', true);
+  req.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+  req.send("name=" + place.name+'.'+place.id);
 }

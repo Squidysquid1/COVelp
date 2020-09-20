@@ -1,11 +1,9 @@
-import pandas as pd
-import numpy as np
 from my_app.models import Business, Review
 from my_app import app, db
 
-def analysis(b_place_id=''):
+def analysis_of_b(b_place_id=''):
     b = Business.query.filter_by(place_id=b_place_id).first()
-    reviews = get_reviews(b.id)
+    reviews = get_reviews(b.place_id)
 
     b.avg_busy = get_busy(reviews)
     b.avg_mask_enforced = get_mask_enforced(reviews)
@@ -15,13 +13,6 @@ def analysis(b_place_id=''):
     b.score = get_score(reviews, a=1, b=1, c=1, d=1.3) #a, b, c, d are parameters
 
     db.session.commit()
-
-'''
-mask_required = db.Column(db.Boolean) # boolean
-mask_enforced = db.Column(db.Integer) #0 to 10
-social_distance = db.Column(db.Integer) #0 to 10
-busy = db.Column(db.Integer)
-'''
 
 
 def get_required(reviews):
@@ -71,4 +62,4 @@ def get_score(reviews, a=1, b=1, c=1, d=1):
 
 
 def get_reviews(business_id):
-    return Review.query.filter(Business.id==business_id)
+    return Review.query.filter(Business.place_id==business_id)

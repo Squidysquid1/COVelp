@@ -53,6 +53,7 @@
           {% endfor %}
         </div>
         <div class="business-reviews">
+          <div id="result"></div>
           {% for r in reviews %}
           <div id="review-head">Reviews: </div>
             <div class="review">
@@ -99,7 +100,8 @@
       	<!-- Submit button -->
       	<button type="submit" onclick="reviewForm();" style="float:left;">SUBMIT</button>
         <button type="submit" onclick="hideForm();" style="float:right;">Close Review</button>
-      </form>
+
+        </form>
     </div>
 
     <script src="../static/js/api.js"></script>
