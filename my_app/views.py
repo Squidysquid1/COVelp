@@ -1,7 +1,7 @@
 # Views at the end of Workshop 2
 
 from my_app import app, db
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
 from my_app.models import Business, Review
 
 db.create_all()
@@ -17,7 +17,8 @@ def review():
         place_id = request.args.get('id')
         b = [Business.query.filter(Business.place_id == place_id).first()] #all businesses
         rs = Review.query.filter(Business.place_id == place_id).all() # all reviews
-
+        flash(place_id)
+        print('yaya')
         return render_template("index.html", reviews=rs, business=b)
 
 
