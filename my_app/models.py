@@ -18,6 +18,15 @@ class Business(db.Model):
 
 	reviews = db.relationship('Review', backref='Business', lazy=True)
 
+	def __repr__(self): #returns json object for javascript
+		b = {'business_name' : self.business_name,
+			 'avg_mask_required' : self.avg_mask_required,
+			 'avg_busy' : self.avg_busy,
+			 'avg_social_distance' : self.avg_social_distance,
+			 'score' : self.score}
+
+		return json.dumps(b)
+
 class Review(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	author_name = db.Column(db.String(250), nullable=False)
@@ -37,6 +46,5 @@ class Review(db.Model):
 			 'social_distance' : self.social_distance,
 			 'busy' : self.busy,
 			 'text' : self.text,
-			 'time' : self.time,
-		}
+			 'time' : self.time}
 		return json.dumps(r)
