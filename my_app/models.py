@@ -49,5 +49,3 @@ class Review(db.Model):
 			 'text' : self.text,
 			 'time' : self.time}
 		return json.dumps(r)
-
-@app.route('')
