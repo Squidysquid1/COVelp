@@ -108,5 +108,8 @@ function drawCircle(color){//green for >90 //yellow for 90-70 //red for < 70
 
 function updateRightSide(){}
 function checkForPlaceIdInDatabase(placeId){
-
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open( "GET", "localhost:5000/api/"+place_id, false ); // false for synchronous request
+  xmlHttp.send( null );
+  return xmlHttp.responseText;
 }

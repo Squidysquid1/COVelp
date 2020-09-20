@@ -8,12 +8,17 @@ db.create_all()
 
 @app.route("/")
 def index():
-    #db_facts = Fact.query.all()
-    #fact_dict = {fact.name: fact.value for fact in db_facts}
-
-    #db_posts = Post.query.all()
-    #post_list = [{"title": post.title, "description": post.description} for post in db_posts]
     return render_template("index.html", reviews=[])
+
+@app.route('/api/<place_id>', methods = ['GET', 'POST'])
+def user(user_id):
+    if request.method == 'GET':
+
+    if request.method == 'POST':
+
+        data = request.form # a multidict containing POST data
+
+
 
 
 
