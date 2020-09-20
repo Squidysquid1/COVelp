@@ -108,8 +108,17 @@ function drawCircle(color){//green for >90 //yellow for 90-70 //red for < 70
 
 function updateRightSide(){}
 function checkForPlaceIdInDatabase(placeId){
-  var xmlHttp = new XMLHttpRequest();
-  xmlHttp.open( "GET", "localhost:5000/api/"+place_id, false ); // false for synchronous request
-  xmlHttp.send( null );
-  return xmlHttp.responseText;
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "ajaxfile.php?request=1", true);
+  xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xhttp.setRequestHeader("id", placeId, false);
+  xhttp.onreadystatechange = function() {
+     if (this.readyState == 4 && this.status == 200) {
+
+        // Response
+        var response = this.responseText;
+
+     }
+  };
+  xhttp.send();
 }
