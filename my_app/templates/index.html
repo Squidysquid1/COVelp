@@ -15,18 +15,8 @@
       </div>
     </div>
 
-    <!--Row 2-->
-    <div class="row" id="row-2">
-      <div class="col-8">
-        <h3>Search for Business<h3>
-      </div>
-      <div class="col-4">
-        <button onclick="showForm();">Write review</button>
-      </div>
-    </div>
-
     <!--Row 3-->
-    <div class="row" id="row-3">
+    <div class="row" id="row-2">
       <div class="col-8">
         <!--The div element for the map -->
         <div class="pac-card" id="pac-card">
@@ -48,8 +38,11 @@
 
       </div>
       <div class="col-4" id="business-info">
+        <div>
+          <button onclick="showForm();">Write review</button>
+        </div>
         <div class="business-data">
-          <div id="business-title">Business Name: Billy's Shop</div><br/>
+          <div id="business-title"><br>Billy's Shop</div><br/>
           <div id="business-location">Location: Kenosha, WI</div><br/>
           <div id="location-cases">Cases: 1000 confirmed cases</div><br/>
           <div id="avg-mr">Mask required</div><br/>
@@ -60,7 +53,6 @@
         </div>
         <div class="business-reviews">
           <div id="review-head">Reviews: </div>
-          {% for r in reviews %}
             <div class="review">
               <div id="author-name">Author Name: John Smith</div><div id="author-date">Date: 09/19/2020</div><br/>
               <div class="average">Busyness score: 2/10</div><br/>
@@ -72,7 +64,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer enim ipsum, eui
 Quisque mattis sem urna, sit amet sagittis elit viverra nec. Sed a libero fermentum, vehicula ipsum at, euismod dui. Quisque sit amet malesuada felis, sed commodo ipsum. Nullam eu massa mi. Mauris ac malesuada ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla facilisi. Integer interdum purus tellus, sit amet fermentum sapien ullamcorper ut. In dictum, metus ut venenatis cursus, magna quam congue velit, ut semper mi urna efficitur elit. </div><br/>
 
             </div><br />
-          {% endfor %}
         </div>
       </div>
       <!--div id="business-data"></div-->
@@ -83,7 +74,7 @@ Quisque mattis sem urna, sit amet sagittis elit viverra nec. Sed a libero fermen
       	<!-- Question 1 -->
       	<H3>Face masks required</H3>
       	<label for="score">True or False:</label><br>
-      	<input type="text" id="reqScore" name="reqScore" value=""><br>
+      	<input type="checkbox" id="reqScore" name="reqScore" value=""><br>
       	<!-- Question 2 -->
       	<h3>Mask wearing is enforced?</h3>
       	<label for="score">On a scale of 1-10 (10 being enforced strictly):</label><br>
@@ -97,7 +88,8 @@ Quisque mattis sem urna, sit amet sagittis elit viverra nec. Sed a libero fermen
       	<label for="score">On a scale of 1-10 (10 being abnormally busy):</label><br>
       	<input type="text" id="busyScore" name="busyScore" value=""><br><br> <!-- two breaks intended -->
       	<!-- Submit button -->
-      	<button type="submit" onclick="">SUBMIT</button>
+      	<button type="submit" onclick="" style="float:left;">SUBMIT</button>
+        <button type="submit" onclick="hideForm();" style="float:right;">Close Review</button>
       </form>
     </div>
 
