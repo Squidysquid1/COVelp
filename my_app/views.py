@@ -1,7 +1,7 @@
 # Views at the end of Workshop 2
 
 from my_app import app, db
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect, url_for
 from my_app.models import Business, Review
 
 db.create_all()
@@ -15,15 +15,19 @@ def index():
     #post_list = [{"title": post.title, "description": post.description} for post in db_posts]
     return render_template("index.html", reviews=[])
 
-# @app.route('review-post', methods=['POST'])
+
+
+# @app.route('/review-post', methods=['GET'])
 # def post():
-#     if request.method == 'POST':
-#         r = request.get_json()
-#         review = Review(author_name=r[''], mask_required=r['reqScore'], mask_enforced=r['maskScore'], social_distance=r['sdScore'], busy=r['busyScore'])
-#         db.session.add(review)
-#         db.session.commit()
+#     # if request.method == 'GET':
+#     #     r = request.get_json()
+#     #     review = Review(author_name=r[''], mask_required=r['reqScore'], mask_enforced=r['maskScore'], social_distance=r['sdScore'], busy=r['busyScore'])
+#     #     db.session.add(review)
+#     #     db.session.commit()
 #
-#     return redirect("/", reviews=[])
+#     return redirect(url_for('index'))
+
+
 
 
 '''
