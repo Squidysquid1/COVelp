@@ -70,10 +70,14 @@ Quisque mattis sem urna, sit amet sagittis elit viverra nec. Sed a libero fermen
 
     <div id="form">
       <form>
+        <H3>What's your name?</H3>
+      	<label for="score">Name:</label><br>
+      	<input type="text" id="authorName" name="authorName" value=""><br>
       	<!-- Question 1 -->
-      	<H3>Face masks required</H3>
-      	<label for="score">True or False:</label><br>
+      	<H3>Face masks required?</H3>
+      	<label for="score">Yes or no:</label><br>
       	<input type="checkbox" id="reqScore" name="reqScore" value=""><br>
+
       	<!-- Question 2 -->
       	<h3>Mask wearing is enforced?</h3>
       	<label for="score">On a scale of 1-10 (10 being enforced strictly):</label><br>
@@ -87,7 +91,7 @@ Quisque mattis sem urna, sit amet sagittis elit viverra nec. Sed a libero fermen
       	<label for="score">On a scale of 1-10 (10 being abnormally busy):</label><br>
       	<input type="text" id="busyScore" name="busyScore" value=""><br><br> <!-- two breaks intended -->
       	<!-- Submit button -->
-      	<button type="submit" onclick="" style="float:left;">SUBMIT</button>
+      	<button type="submit" onclick="reviewForm();" style="float:left;">SUBMIT</button>
         <button type="submit" onclick="hideForm();" style="float:right;">Close Review</button>
       </form>
     </div>

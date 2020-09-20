@@ -15,6 +15,17 @@ def index():
     #post_list = [{"title": post.title, "description": post.description} for post in db_posts]
     return render_template("index.html", reviews=[])
 
+# @app.route('review-post', methods=['POST'])
+# def post():
+#     if request.method == 'POST':
+#         r = request.get_json()
+#         review = Review(author_name=r[''], mask_required=r['reqScore'], mask_enforced=r['maskScore'], social_distance=r['sdScore'], busy=r['busyScore'])
+#         db.session.add(review)
+#         db.session.commit()
+#
+#     return redirect("/", reviews=[])
+
+
 '''
  @app.route("/review-business")
  def review_business():
